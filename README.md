@@ -1,27 +1,35 @@
-# Avaliacao
+# Avaliação
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+Versão do Angular: v15.2.6. Versão indicada do node: v14.20.1.
 
-## Development server
+## Requisitos da aplicação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Utilizando a API: https://dummyapi.io/data/v1/, seguindo a documentação: https://dummyapi.io/docs (Endpoints de usuários: https://dummyapi.io/docs/user ).
 
-## Code scaffolding
+##### Criar as seguintes paginas:
+- Exibição de lista de usuários
+- Exibição de usuário único
+- Criação de usuários
+- Atualização de dados de usuário. 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+###### Outras informações:
+Todas as paginas precisam estar integradas com a API. 
+A API necessita de autenticação via header conforme documentação. 
+O "Token" se encontra no e-mail.
+Pode utilizar bibliotecas de componentes como Angular Material ou Bootstrap.
 
-## Build
+### Requisito das paginas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Exibição de lista de usuários:**
+Botão de redirecionamento para pagina de criação de usuário.
+Lista de usuários com Botão para deletar o usuário, botões para redirecionamento para as paginas de exibição de usuário único e atualização de dados do usuário.
 
-## Running unit tests
+**Exibição de usuário único:**
+Exibição do usuário e botão voltar.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Criação de usuários:**
+Formulário de criação de usuário.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Atualização de dados de usuário:**
+Formulário de atualização de dados do usuário pelo ID disponibilizado na lista.
+Toda vez que editar os inputs, salvar o formulário, se preocupar com quantidade de requisições para evitar sobre carga do servidor.
