@@ -16,7 +16,7 @@ Utilizando a API: https://dummyapi.io/data/v1/, seguindo a documentação: https
 Todas as paginas precisam estar integradas com a API. 
 A API necessita de autenticação via header conforme documentação. 
 O "Token" se encontra no e-mail onde essa avaliação foi enviada.
-Pode utilizar bibliotecas de componentes como Angular Material ou Bootstrap.
+Opcional: bibliotecas de componentes como Angular Material ou Bootstrap.
 
 ### Requisito das paginas
 
