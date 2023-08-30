@@ -6,16 +6,17 @@ import { AppComponent } from './app.component';
 import { TokenInterceptor } from './services/token.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserPreviewComponent } from './components/user-preview/user-preview.component';
 import { UserListComponent } from './components/shared/user-list/user-list.component';
+import { UserPageComponent } from './components/pages/user-page/user-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    UserPreviewComponent,
+
     UserListComponent,
+     UserPageComponent,
   ],
   imports: [
     BrowserModule,
