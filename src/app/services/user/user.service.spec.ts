@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { UserService } from './user.service';
-import { IUser } from 'src/app/models/user';
+import { IUser } from 'src/app/models/user/user';
 
 describe('Service: User', () => {
   beforeEach(() => {

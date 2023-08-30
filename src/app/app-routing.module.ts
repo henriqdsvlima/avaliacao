@@ -13,11 +13,14 @@ const routes: Routes = [
   },
   {
     component: UserListComponent,
-    path: 'user-list'
+    path: 'user-list',
+    loadChildren: () => import('./app.module').then(m => m.AppModule)
+
   },
   {
     component: UserPageComponent,
-    path: 'user-page'
+    path: 'user-page',
+    loadChildren: () => import('./app.module').then(m => m.AppModule)
   }
 ];
 
