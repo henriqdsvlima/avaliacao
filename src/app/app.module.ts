@@ -15,6 +15,8 @@ import { AddUserComponent } from './components/pages/add-user/add-user.component
   declarations: [
     AppComponent,
     HomeComponent,
+    UserListComponent,
+    UserPageComponent,
 
   ],
   imports: [
@@ -23,9 +25,8 @@ import { AddUserComponent } from './components/pages/add-user/add-user.component
     HttpClientModule,
     ReactiveFormsModule,
     //standalone
-    UserListComponent,
     AddUserComponent,
-    UserPageComponent,
+
   ],
   providers: [HttpClient,
     {

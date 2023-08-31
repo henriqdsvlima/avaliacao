@@ -1,22 +1,23 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { IUserPreview } from '../../models/user/user-preview';
-import { IUser } from '../../models/user/user';
+import { IUser, IUserPreview } from '../../models/user/user';
 import { ListResponse } from 'src/app/models/response/list-response';
-import { SingleResponse } from './../../models/response/single-response';
 import { ApiError } from 'src/app/models/response/error/api-error';
 import { ApiErrorType } from 'src/app/models/response/error/api-error-type';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   constructor(private http: HttpClient) { }
 
   private API_URL = 'https://dummyapi.io/data/v1'
+
+
 
 
 
@@ -29,7 +30,7 @@ export class UserService {
   }
 
 
-  getUserById(id: string): Observable<IUser> {
+  getUserById(id: string | null): Observable<IUser> {
     const endpoint = `${this.API_URL}/user/${id}`
     return this.http.get<IUser>(endpoint).pipe(
       catchError(this.handleError)
@@ -41,7 +42,7 @@ export class UserService {
 
   getUsersForList(page: number, limit: number): Observable<ListResponse<IUserPreview>> {
     //buscar usuarios com um limite de x usuarios por pagina
-    const endpoint = `${this.API_URL}/users?page=${page}&limit=${limit}`;
+    const endpoint = `${this.API_URL}/user?page=${page}&limit=${limit}`;
     return this.http.get<ListResponse<IUserPreview>>(endpoint).pipe(
       catchError(this.handleError)
     );
@@ -78,9 +79,6 @@ export class UserService {
         message: 'Something went wrong. Please try again later.',
       };
     }
-
-    // Aqui você pode fazer switch-case ou if-else com base no tipo de erro, se necessário.
-    // Por exemplo, você pode querer logar certos erros, mostrar diferentes mensagens ao usuário, etc.
 
     return new Observable(observer => {
       observer.error(apiError);

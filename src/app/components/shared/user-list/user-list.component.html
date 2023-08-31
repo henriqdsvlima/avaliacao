@@ -1,31 +1,22 @@
-<div class="">
-  <h2 class="text-lg font-semibold mb-4">Lista de Usuários:</h2>
-  <ul>
-    <li class="">
-      <div class="bg-gray-100  flex justify-start">
-        <!-- Card do Usuário -->
-        <div class="  ">
-         <div class=" ">
-             <!-- Ícone de Usuário -->
-             <svg class="  " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v16m8-2v6m8-16v16m0-6H8m8 0a4 4 0 100-8 4 4 0 000 8zm-3-4a3 3 0 11-2 2.8V11"></path>
-             </svg>
-         </div>
+<div *ngIf="users">
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
 
-         <div class=" ">
-             <!-- Nome e Sobrenome -->
-             <h2 class="text-xl font-semibold">Nome Sobrenome</h2>
+         <button (click)="viewProfile(user)" class="bg-black text-white" > Ver Perfil </button>
 
-             <!-- Email -->
-             <p class="text-gray-600">email@example.com</p>
-         </div>
 
-         <div class=" ">
-             <button class=" ">Ver Perfil</button>
-         </div>
-       </div>
-       </div>
 
-    </li>
-  </ul>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -20,7 +20,6 @@ describe('Service: User', () => {
   it('should create a user with valid input data', inject([UserService, HttpClient],
     (service: UserService, httpClient: HttpClient) => {
        const user: IUser = {
-         id: '1',
          firstName: 'John',
          lastName: 'Doe',
          email: 'john.doe@example.com'

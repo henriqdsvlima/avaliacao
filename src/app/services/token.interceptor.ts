@@ -1,29 +1,24 @@
+import { Injectable } from '@angular/core';
 import {
-  HttpEvent,
-  HttpHandler,
-  HttpHeaders,
-  HttpInterceptor,
-  HttpRequest
+  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest
 } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+
+@Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // Obtenha o token de onde você o armazena, por exemplo, LocalStorage
-    const token:string | null = localStorage.getItem('64cbeddd253549dc8b990b71w');
+  intercept(req: HttpRequest<any>, next: HttpHandler):
+    Observable<HttpEvent<any>> {
 
-    // Verifique se o token existe
-    if (token) {
-      // Clone a requisição e substitua o cabeçalho pelo cabeçalho atualizado
-      request = request.clone({
-        headers: new HttpHeaders({
-          'Authorization': `Bearer ${token}`
-        })
-      });
-    }
+    // Clonando a requisição original e modificando-a para incluir o header 'app-id'
+    const clonedReq = req.clone({
+      setHeaders: {
+        'app-id': '64cbeddd253549dc8b990b71' // Substitua 'YOUR_APP_ID' pelo seu app-id real.
+      }
+    });
 
-    // Encaminhe a requisição editada ou a original
-    return next.handle(request);
+    // Passando a requisição clonada e modificada ao invés da original
+    return next.handle(clonedReq);
   }
 }
