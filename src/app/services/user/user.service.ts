@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { IUser, IUserPreview } from '../../models/user/user';
 import { ListResponse } from 'src/app/models/response/list-response';
 import { ApiError } from 'src/app/models/response/error/api-error';
@@ -25,6 +25,7 @@ export class UserService {
     const endpoint = `${this.API_URL}/user/create`
     return this.http.post<IUser>(endpoint, user)
       .pipe(
+        map((user) => user),
         catchError(this.handleError)
       );
   }
@@ -33,6 +34,7 @@ export class UserService {
   getUserById(id: string | null): Observable<IUser> {
     const endpoint = `${this.API_URL}/user/${id}`
     return this.http.get<IUser>(endpoint).pipe(
+      map((user) => user),
       catchError(this.handleError)
     );
   }
@@ -40,30 +42,35 @@ export class UserService {
 
 
 
-  getUsersForList(page: number, limit: number): Observable<ListResponse<IUserPreview>> {
-    //buscar usuarios com um limite de x usuarios por pagina
-    const endpoint = `${this.API_URL}/user?page=${page}&limit=${limit}`;
+  getUsersForList(): Observable<ListResponse<IUserPreview>> {
+    // Base endpoint
+    let endpoint = `${this.API_URL}/user?created=1`;
+
+    // If you want only created items, append the created parameter
+
+
     return this.http.get<ListResponse<IUserPreview>>(endpoint).pipe(
       catchError(this.handleError)
     );
-  }
+}
 
 
 
 
 
-  updateUser(userId: number, updatedData: IUser): Observable<IUser> {
-    const endpoint = `${this.API_URL}/user/${userId}`
-    return this.http.put<IUser>(endpoint, updatedData).pipe(
+  updateUser(userId: IUser): Observable<IUser> {
+    const endpoint = `${this.API_URL}/user/${userId.id}`
+    return this.http.put<IUser>(endpoint, userId).pipe(
       catchError(this.handleError)
     );
   }
 
 
 
-  deleteUser(userId: number): Observable<IUser> {
+  showUser(userId: string): Observable<IUser> {
     const endpoint = `${this.API_URL}/user/${userId}`
-    return this.http.delete<IUser>(endpoint).pipe(
+    return this.http.get<IUser>(endpoint).pipe(
+      map((user) => user),
       catchError(this.handleError)
     );
   }

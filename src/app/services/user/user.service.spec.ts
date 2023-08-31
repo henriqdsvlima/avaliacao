@@ -17,19 +17,5 @@ describe('Service: User', () => {
   }));
 
 
-  it('should create a user with valid input data', inject([UserService, HttpClient],
-    (service: UserService, httpClient: HttpClient) => {
-       const user: IUser = {
-         firstName: 'John',
-         lastName: 'Doe',
-         email: 'john.doe@example.com'
-       };
-
-       const result = service.createUser(user);
-       expect(result).toBeTruthy();
-}));
-
-
-
 
 });

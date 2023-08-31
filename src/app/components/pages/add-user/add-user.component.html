@@ -1,28 +1,21 @@
-<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-md w-full space-y-8">
-    <div>
-      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-        Adicionar Usuário
-      </h2>
-    </div>
-    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
-      <div>
-        <label for="firstName">First Name</label>
-        <input type="text" id="firstName" formControlName="firstName">
-      </div>
+<mat-card>
+  <mat-card-title>Novo Usuario</mat-card-title>
+  <form [formGroup]="addUserForm">
+      <mat-form-field>
+          <input matInput placeholder="Nome" formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Sobrenome" formControlName="lastName">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="createUser()" color="primary" [disabled]="!addUserForm.valid">
+      Salvar
+  </button>
 
-      <div>
-        <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" formControlName="lastName">
-      </div>
-
-      <div>
-        <label for="email">Email</label>
-        <input type="email" id="email" formControlName="email">
-      </div>
-
-      <button type="submit">Create User</button>
-    </form>
-
-  </div>
-</div>
+  <button mat-raised-button (click)="backToUserList()">
+      Voltar
+  </button>
+</mat-card>

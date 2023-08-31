@@ -14,7 +14,7 @@ export class TokenInterceptor implements HttpInterceptor {
     // Clonando a requisição original e modificando-a para incluir o header 'app-id'
     const clonedReq = req.clone({
       setHeaders: {
-        'app-id': '64ed062e4340d229095be2de' // Substitua 'YOUR_APP_ID' pelo seu app-id real.
+        'app-id': '64ed062e4340d229095be2de',
       }
     });
 

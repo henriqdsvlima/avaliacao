@@ -1,22 +1,56 @@
-<div *ngIf="users">
-  <table>
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.firstName }}</td>
-        <td>{{ user.lastName }}</td>
 
-         <button (click)="viewProfile(user)" class="bg-black text-white" > Ver Perfil </button>
+<button mat-raised-button (click)="navigateToProductCreate()"
+    color="primary">
+    Adicionar Usuário
+</button>
+
+<mat-form-field>
+  <input matInput [formControl]="searchControl" placeholder="Pesquisar usuário">
+</mat-form-field>
 
 
+<div class="" *ngIf="users" >
+  <table mat-table [dataSource]="users">
 
-      </tr>
-    </tbody>
-  </table>
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+    </ng-container>
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let user">{{ user.firstName }}</td>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+    </ng-container>
+
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let row">
+          <!-- Assumindo que você quer editar e deletar usuários baseado no ID deles -->
+
+          <a routerLink="/users/user/{{ row.id }}" class="delete">
+              <i class="material-icons">
+                  face
+              </i>
+          </a>
+          <a routerLink="/users/update/{{ row.id }}" class="edit">
+            <i class="material-icons">
+                edit
+            </i>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 </div>

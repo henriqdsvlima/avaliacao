@@ -1,10 +1,14 @@
+import { AppModule } from './app.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/views/home/home.component';
+import { HomeComponent } from './components/pages/home/home.component';
 
 import { UserListComponent } from './components/shared/user-list/user-list.component';
-import { UserPageComponent } from './components/pages/user-page/user-page.component';
+
+import { AddUserComponent } from './components/pages/add-user/add-user.component';
+import { UpdateUserComponent } from './components/pages/update-user/update-user.component';
+import { ShowUserComponent } from './components/pages/show-user/show-user.component';
 
 const routes: Routes = [
   {
@@ -13,13 +17,21 @@ const routes: Routes = [
   },
   {
     path: "users",
-    component: UserListComponent
+    component: UserListComponent,
   },
   {
-
-    path: 'user-page',
-    component: UserPageComponent,
+    path: "users/create",
+    component: AddUserComponent
+  },
+  {
+    path:'users/update/:id',
+    component: UpdateUserComponent
+  },
+  {
+    path:'users/user/:id',
+    component: ShowUserComponent
   }
+
 ];
 
 @NgModule({

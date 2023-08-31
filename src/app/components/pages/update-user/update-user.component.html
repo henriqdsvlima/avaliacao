@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-title>Alterar Dados do Usuário</mat-card-title>
+  <form [formGroup]="userForm">
+      <mat-form-field>
+          <input matInput placeholder="Nome"
+                 formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="LastName"
+                 formControlName="lastName"  >
+      </mat-form-field>
+      <button mat-raised-button (click)="updateUser()" color="warn">
+          Atualizar
+      </button>
+      <button mat-raised-button (click)="cancel()">
+          Cancelar
+      </button>
+  </form>
+</mat-card>
