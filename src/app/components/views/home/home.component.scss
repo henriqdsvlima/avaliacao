@@ -29,3 +29,7 @@
 .password-reset {
   @apply font-bold text-blue-600;
 }
+
+.search-button {
+  @apply bg-[#4F46E5] p-1 m-2 justify-center rounded-md text-white font-bold cursor-pointer
+}
