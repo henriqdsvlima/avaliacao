@@ -1,4 +1,8 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError } from 'rxjs';
@@ -6,69 +10,49 @@ import { IUser, IUserPreview } from '../../models/user/user';
 import { ListResponse } from 'src/app/models/response/list-response';
 import { ApiError } from 'src/app/models/response/error/api-error';
 import { ApiErrorType } from 'src/app/models/response/error/api-error-type';
+import { environment } from 'src/environments/environment';
 
+const API_URL = environment.apiUrl;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class UserService {
-
-  constructor(private http: HttpClient) { }
-
-  private API_URL = 'https://dummyapi.io/data/v1'
-
-
-
+  constructor(private http: HttpClient) {}
 
 
   createUser(user: IUser): Observable<IUser> {
-    const endpoint = `${this.API_URL}/user/create`
-    return this.http.post<IUser>(endpoint, user)
-      .pipe(
-        map((user) => user),
-        catchError(this.handleError)
-      );
+    const endpoint = `${API_URL}/user/create`;
+    return this.http.post<IUser>(endpoint, user).pipe(
+      map((user) => user),
+      catchError(this.handleError)
+    );
   }
 
-
   getUserById(id: string | null): Observable<IUser> {
-    const endpoint = `${this.API_URL}/user/${id}`
+    const endpoint = `${API_URL}/user/${id}`;
     return this.http.get<IUser>(endpoint).pipe(
       map((user) => user),
       catchError(this.handleError)
     );
   }
 
-
-
-
   getUsersForList(): Observable<ListResponse<IUserPreview>> {
-    // Base endpoint
-    let endpoint = `${this.API_URL}/user?created=1`;
+    let endpoint = `${API_URL}/user?created=1`;
 
-    // If you want only created items, append the created parameter
-
-
-    return this.http.get<ListResponse<IUserPreview>>(endpoint).pipe(
-      catchError(this.handleError)
-    );
-}
-
-
-
-
-
-  updateUser(userId: IUser): Observable<IUser> {
-    const endpoint = `${this.API_URL}/user/${userId.id}`
-    return this.http.put<IUser>(endpoint, userId).pipe(
-      catchError(this.handleError)
-    );
+    return this.http
+      .get<ListResponse<IUserPreview>>(endpoint)
+      .pipe(catchError(this.handleError));
   }
 
-
+  updateUser(userId: IUser): Observable<IUser> {
+    const endpoint = `${API_URL}/user/${userId.id}`;
+    return this.http
+      .put<IUser>(endpoint, userId)
+      .pipe(catchError(this.handleError));
+  }
 
   showUser(userId: string): Observable<IUser> {
-    const endpoint = `${this.API_URL}/user/${userId}`
+    const endpoint = `${API_URL}/user/${userId}`;
     return this.http.get<IUser>(endpoint).pipe(
       map((user) => user),
       catchError(this.handleError)
@@ -87,15 +71,8 @@ export class UserService {
       };
     }
 
-    return new Observable(observer => {
+    return new Observable((observer) => {
       observer.error(apiError);
     });
   }
-
-
-
-
-
-
-
 }

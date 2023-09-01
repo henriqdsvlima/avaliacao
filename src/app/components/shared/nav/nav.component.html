@@ -1,13 +1,15 @@
 <mat-drawer-container class="h-full p-2 m-5">
-  <mat-drawer mode="side" opened>
+  <mat-drawer opened mode="side" position="start" opened>
     <ul class="p-2">
-      <li class="font-bold"> <a routerLink="/"> Home </a></li>
-      <li class="font-bold"> <a routerLink="/users"> Gerenciar Usuários </a></li>
+      <li class="font-bold p-2">
+        <a routerLink="/"> Home </a>
+      </li>
+      <li class="font-bold p-2">
+        <a routerLink="/users"> Gerenciar Usuários </a>
+      </li>
     </ul>
-
   </mat-drawer>
-  <mat-drawer-content class="w-full" >
+  <mat-drawer-content     [ngClass]="{ 'w-full': true, 'md:w-3/4 lg:w-1/2': !(isHandset$ | async) }"  opened mode="side" position="end" >
       <router-outlet></router-outlet>
-
   </mat-drawer-content>
 </mat-drawer-container>

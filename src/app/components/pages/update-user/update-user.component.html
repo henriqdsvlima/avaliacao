@@ -1,19 +1,19 @@
-<mat-card>
-  <mat-card-title>Alterar Dados do Usuário</mat-card-title>
-  <form [formGroup]="userForm">
-      <mat-form-field>
-          <input matInput placeholder="Nome"
-                 formControlName="firstName">
-      </mat-form-field>
-      <mat-form-field>
-          <input matInput placeholder="LastName"
-                 formControlName="lastName"  >
-      </mat-form-field>
-      <button mat-raised-button (click)="updateUser()" color="warn">
-          Atualizar
+<div class="form-container">
+  <h2 class="form-title">Alterar Dados do Usuário</h2>
+  <form [formGroup]="userForm" class="space-y-4">
+    <div class="form-field">
+    Nome:  <input matInput placeholder="Nome" formControlName="firstName" class="form-input">
+    </div>
+    <div class="form-field">
+      Sobrenome: <input matInput placeholder="Sobrenome" formControlName="lastName" class="form-input">
+    </div>
+    <div class="flex-buttons">
+      <button mat-raised-button (click)="updateUser()" class="update-button">
+        Atualizar
       </button>
-      <button mat-raised-button (click)="cancel()">
-          Cancelar
+      <button mat-raised-button (click)="cancel()" class="cancel-button">
+        Cancelar
       </button>
+    </div>
   </form>
-</mat-card>
+</div>

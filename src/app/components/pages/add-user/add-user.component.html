@@ -1,21 +1,22 @@
-<mat-card>
-  <mat-card-title>Novo Usuario</mat-card-title>
-  <form [formGroup]="addUserForm">
-      <mat-form-field>
-          <input matInput placeholder="Nome" formControlName="firstName">
-      </mat-form-field>
-      <mat-form-field>
-          <input matInput placeholder="Sobrenome" formControlName="lastName">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Email" formControlName="email">
-    </mat-form-field>
+<div class="max-w-md mx-auto p-6 bg-white shadow-md rounded-md">
+  <h2 class="text-2xl font-semibold mb-6">Novo Usuario</h2>
+  <form [formGroup]="addUserForm" class="space-y-4">
+    <div class="relative">
+      <input matInput placeholder="Nome" formControlName="firstName" class="w-full p-2 border rounded-md">
+    </div>
+    <div class="relative">
+      <input matInput placeholder="Sobrenome" formControlName="lastName" class="w-full p-2 border rounded-md">
+    </div>
+    <div class="relative">
+      <input matInput placeholder="Email" formControlName="email" class="w-full p-2 border rounded-md">
+    </div>
   </form>
-  <button mat-raised-button (click)="createUser()" color="primary" [disabled]="!addUserForm.valid">
+  <div class="flex justify-between mt-6">
+    <button mat-raised-button (click)="createUser()" class="bg-blue-600 text-white py-2 px-4 rounded-md" [disabled]="!addUserForm.valid">
       Salvar
-  </button>
-
-  <button mat-raised-button (click)="backToUserList()">
+    </button>
+    <button mat-raised-button (click)="backToUserList()" class="bg-gray-200 text-black py-2 px-4 rounded-md">
       Voltar
-  </button>
-</mat-card>
+    </button>
+  </div>
+</div>

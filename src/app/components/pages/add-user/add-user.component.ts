@@ -38,13 +38,13 @@ constructor(private fb: FormBuilder, private userService: UserService, private r
       this.userService.createUser(this.addUserForm.value)
         .subscribe(
           user => {
-            console.log('User created successfully', user);
+
             this.userCreated.emit(user);
             this.loadUsers();
             Swal.fire({
               position: 'center',
               icon: 'success',
-              title: 'User created successfully',
+              title: 'Usuário Criado com sucesso',
               showConfirmButton: false,
               timer: 1500
             })
@@ -57,7 +57,7 @@ constructor(private fb: FormBuilder, private userService: UserService, private r
             Swal.fire({
               icon: 'error',
               title: 'Oops...',
-              text: 'Something went wrong!',
+              text: 'Algo deu errado!',
             })
           }
         );

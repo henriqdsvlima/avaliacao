@@ -1,0 +1,22 @@
+mat-drawer-container {
+  @apply h-full p-2 m-5 bg-gray-100;
+}
+
+mat-drawer {
+
+  ul {
+      @apply p-2 list-decimal;
+
+      li {
+          @apply font-bold p-2 hover:bg-gray-200;
+
+          a {
+              @apply text-gray-700 hover:text-black no-underline;
+          }
+      }
+  }
+}
+
+mat-drawer-content {
+  @apply w-full bg-gray-100;
+}

@@ -1,0 +1,25 @@
+// user-detail-styles.scss
+
+.detail-container {
+  @apply max-w-md mx-auto p-6 bg-white shadow-md rounded-md;
+}
+
+.detail-title {
+  @apply text-2xl font-semibold mb-6;
+}
+
+.detail-field {
+  @apply relative;
+}
+
+.readonly-input {
+  @apply w-full p-2 border rounded-md bg-gray-100 cursor-not-allowed;
+}
+
+.back-button {
+  @apply bg-gray-200 text-black py-2 px-4 rounded-md;
+}
+
+.button-container {
+  @apply mt-6;
+}

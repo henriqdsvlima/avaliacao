@@ -1,0 +1,10 @@
+// user-list-styles.scss
+
+
+.edit {
+  @apply mr-3 text-blue-600 cursor-pointer hover:text-indigo-700;
+}
+
+.show {
+  @apply text-red-600 cursor-pointer hover:text-red-700;
+}

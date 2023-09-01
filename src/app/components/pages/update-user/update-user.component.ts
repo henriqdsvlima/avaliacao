@@ -46,7 +46,7 @@ export class UpdateUserComponent {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'User updated successfully',
+        title: 'Usuário Atualizado com Sucesso',
         showConfirmButton: false,
         timer: 1500
       })
@@ -57,7 +57,7 @@ export class UpdateUserComponent {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Something went wrong!',
+        text: 'Algo deu errado',
       })
     });
 }

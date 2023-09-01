@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IUserPreview } from 'src/app/models/user/user';
 import { UserService } from 'src/app/services/user/user.service';
-import { HeaderDataService } from '../header/header-data.service';
+import { HeaderDataService } from '../../shared/header/header-data.service';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  displayedColumns = ['id', 'firstName', 'lastName', 'action'];
+  displayedColumns = ['firstName', 'lastName', 'action'];
   users: IUserPreview[] = [];
   allUsers: IUserPreview[] = []; // lista de backup
   searchControl = new FormControl();

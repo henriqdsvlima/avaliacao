@@ -1,0 +1,50 @@
+<div class="add-user flex p-2 mr-2">
+  <button (click)="navigateToProductCreate()"
+    class=" justify-start bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" color="primary">
+    Adicionar Usuário
+  </button>
+
+  <input class="m-2 p-2" [formControl]="searchControl" placeholder="Pesquisar usuário">
+</div>
+
+
+
+<div class="m-4 p-4" *ngIf="users">
+  <table mat-table [dataSource]="users">
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let user">{{ user.firstName }}</td>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Sobrenome</th>
+      <td mat-cell *matCellDef="let user">{{ user.lastName }}</td>
+    </ng-container>
+
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let row">
+        <!-- Assumindo que você quer editar e deletar usuários baseado no ID deles -->
+
+        <a routerLink="/users/user/{{ row.id }}" class="delete">
+          <i class="material-icons">
+            face
+          </i>
+        </a>
+        <a routerLink="/users/update/{{ row.id }}" class="edit">
+          <i class="material-icons">
+            edit
+          </i>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

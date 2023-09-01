@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IUser, IUserPreview } from 'src/app/models/user/user';
 import { UserService } from 'src/app/services/user/user.service';
@@ -22,7 +22,8 @@ export class ShowUserComponent implements OnInit {
               private router:Router) {
     this.userForm = this.fb.group({
       firstName: [''],
-      lastName: ['']
+      lastName: [''],
+      email: ['']
     });
   }
 

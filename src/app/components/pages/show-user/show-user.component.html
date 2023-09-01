@@ -1,14 +1,19 @@
-<mat-card>
-  <mat-card-title>Detalhes do Usuário</mat-card-title>
-  <form [formGroup]="userForm">
-    <mat-form-field>
-      <input matInput placeholder="Nome" formControlName="firstName" readonly>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Sobrenome" formControlName="lastName" readonly>
-    </mat-form-field>
+<div class="detail-container">
+  <h2 class="detail-title">Detalhes do Usuário</h2>
+  <form [formGroup]="userForm" class="space-y-4">
+    <div class="detail-field">
+     Nome <input matInput placeholder="Nome" formControlName="firstName" class="readonly-input" readonly>
+    </div>
+    <div class="detail-field">
+     Sobrenome <input matInput placeholder="Sobrenome" formControlName="lastName" class="readonly-input" readonly>
+    </div>
+    <div class="detail-field">
+     Email <input matInput placeholder="Email" formControlName="email" class="readonly-input" readonly>
+    </div>
   </form>
-  <button mat-raised-button (click)="backToUserList()">
-    Voltar
-  </button>
-</mat-card>
+  <div class="button-container">
+    <button mat-raised-button (click)="backToUserList()" class="back-button">
+      Voltar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+.form-container {
+  @apply max-w-md mx-auto p-6 bg-white shadow-md rounded-md;
+}
+
+.form-title {
+  @apply text-2xl font-semibold mb-6;
+}
+
+.form-field {
+  @apply relative;
+}
+
+.form-input {
+  @apply w-full p-2 border rounded-md;
+}
+
+.update-button {
+  @apply bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-600 focus:outline-none focus:bg-indigo-600;
+}
+
+.cancel-button {
+  @apply bg-gray-200 text-black py-2 px-4 rounded-md hover:bg-gray-300 focus:outline-none focus:bg-gray-300;
+}
+
+.flex-buttons {
+  @apply flex space-x-4 mt-6;
+}
