@@ -7,8 +7,6 @@
   <input class="m-2 p-2" [formControl]="searchControl" placeholder="Pesquisar usuário">
 </div>
 
-
-1
 <div class="m-4 p-4" *ngIf="users">
   <table mat-table [dataSource]="users">
 
@@ -29,7 +27,7 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef>Ações</th>
       <td mat-cell *matCellDef="let row">
-        <!-- Assumindo que você quer editar e deletar usuários baseado no ID deles -->
+        <!--  editar e deletar usuários baseado no ID deles -->
 
         <a routerLink="/users/user/{{ row.id }}" class="delete">
           <i class="material-icons">
