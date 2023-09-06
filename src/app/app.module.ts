@@ -47,7 +47,7 @@ import { CacheInterceptor } from './services/cache/cache.interceptor';
       useClass: TokenInterceptor,
       multi: true
     },
-    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
