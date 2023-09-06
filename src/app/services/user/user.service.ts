@@ -52,7 +52,7 @@ export class UserService {
   }
 
   showUser(userId: string): Observable<IUser> {
-    const endpoint = `${API_URL}/user/${userId}`;
+     const endpoint = `${API_URL}/user/${userId}`;
     return this.http.get<IUser>(endpoint).pipe(
       map((user) => user),
       catchError(this.handleError)
